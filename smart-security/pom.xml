@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.smart.security</groupId>
+    <artifactId>smart-security</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- 由于此处主要做父模块依赖而存在，故打包设置为pom而非jar -->
+    <packaging>pom</packaging>
+    <name>smart-security</name>
+    <description>此处smart-security主要做maven父模块引用而存在，并不具备实际代码，方便后续子模块的maven依赖管理</description>
+
+    <properties>
+        <!-- 规范其余pom子模块互相引用时的版本指定，app等至core的引用 -->
+        <smart-security.version>1.0.0-SNAPSHOT</smart-security.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 引入io.spring进行maven依赖的版本管理,保证引入jar的各兼容性  -->
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>Brussels-SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Dalston.SR2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- 指定编译版本，此处必须为1.8 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

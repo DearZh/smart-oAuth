@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.smart.security</groupId>
+        <artifactId>smart-security</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../smart-security</relativePath>
+    </parent>
+
+    <groupId>com.smart.security</groupId>
+    <artifactId>smart-security-app</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>smart-security-app</name>
+
+    <dependencies>
+        <!--此处模块依赖关系直接以smart-security-core为主 -->
+        <dependency>
+            <groupId>com.smart.security</groupId>
+            <artifactId>smart-security-core</artifactId>
+            <version>${smart-security.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
