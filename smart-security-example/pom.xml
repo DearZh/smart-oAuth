@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.smart.security</groupId>
+        <artifactId>smart-security</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../smart-security</relativePath>
+    </parent>
+
+    <groupId>com.smart.security</groupId>
+    <artifactId>smart-security-example</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>smart-security-example</name>
+    <description>Demo project for Spring Boot</description>
+
+    <dependencies>
+    <!--此处模块依赖关系直接以smart-security-core为主 -->
+    <dependency>
+        <groupId>com.smart.security</groupId>
+        <artifactId>smart-security-browser</artifactId>
+        <version>${smart-security.version}</version>
+    </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 父节点进行模块打包时，此处example生成完整的引用模块lib包，而并非只单纯打包当前项目 arnold -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.3.3.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- 设置每次打包为repackage重新打包 -->
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <!-- 打包后名称为example -->
+        <finalName>example</finalName>
+    </build>
+
+
+</project>

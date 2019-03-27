@@ -35,6 +35,12 @@
         </dependencies>
     </dependencyManagement>
 
+    <modules>
+        <module>../smart-security-app</module>
+        <module>../smart-security-browser</module>
+        <module>../smart-security-core</module>
+        <module>../smart-security-example</module>
+    </modules>
 
     <build>
         <plugins>
