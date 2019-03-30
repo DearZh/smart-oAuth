@@ -17,12 +17,17 @@
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
-    <!--此处模块依赖关系直接以smart-security-core为主 -->
-    <dependency>
-        <groupId>com.smart.security</groupId>
-        <artifactId>smart-security-browser</artifactId>
-        <version>${smart-security.version}</version>
-    </dependency>
+        <!--此处模块依赖关系直接以smart-security-core为主 -->
+        <dependency>
+            <groupId>com.smart.security</groupId>
+            <artifactId>smart-security-browser</artifactId>
+            <version>${smart-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
