@@ -30,7 +30,8 @@ public class SmartUserDetailService implements UserDetailsService {
 
         logger.warn("***********用户登录名称-UserName：*********" + userName);
         //TODO 根据用户名查找对应的用户信息
-
+        //1. Browser服务提供用户查找接口，各具体实现服务：如example 提供具体的实现类，以此实现各服务的定制查询
+        //2. 如果可以保证所有服务组件都查找的相同登录db，则此处browser服务直接实现具体的业务操作，（相同业务，相同场景，否则不靠谱）
 
         logger.warn("**********passwordEncoder.encode(\"123123\")**********" + passwordEncoder.encode("123123"));
 

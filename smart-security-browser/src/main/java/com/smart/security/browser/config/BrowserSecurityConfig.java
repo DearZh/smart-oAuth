@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
  * 重写Security适配器方法
@@ -20,6 +22,13 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private SecurityProperties securityProperties;
+
+    @Autowired
+    private AuthenticationSuccessHandler browserAuthenticationSuccessHandler;
+
+    @Autowired
+    private AuthenticationFailureHandler browserAuthenticationFailureHandler;
+
 
     /**
      * @Description: 用户密码加解密方式
@@ -43,12 +52,16 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form")//定义formLogin所拦截的登录请求URL；关于formLogin属性可见：https://blog.csdn.net/yin380697242/article/details/51893397
+                .successHandler(browserAuthenticationSuccessHandler)
+                .failureHandler(browserAuthenticationFailureHandler)
                 .and()
+
                 .authorizeRequests()    //授权方式
                 .antMatchers("/authentication/require").permitAll()
                 .antMatchers(securityProperties.getBrowser().getLoginPage()).permitAll() //此处实现各服务跳转各登录页效果（需给当前服务登录页授权）
                 .anyRequest()
                 .authenticated()
+
                 .and()
                 .csrf().disable();//关闭跨站伪请求拦截
 
