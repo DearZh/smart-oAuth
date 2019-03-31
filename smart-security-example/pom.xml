@@ -18,9 +18,14 @@
 
     <dependencies>
         <!--此处模块依赖关系直接以smart-security-core为主 -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.smart.security</groupId>
             <artifactId>smart-security-browser</artifactId>
+            <version>${smart-security.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.smart.security</groupId>
+            <artifactId>smart-security-app</artifactId>
             <version>${smart-security.version}</version>
         </dependency>
         <dependency>

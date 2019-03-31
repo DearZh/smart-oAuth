@@ -23,7 +23,7 @@ public class UserController {
         List<User> users = new ArrayList<>();
         users.add(new User());
 
-        return null;
+        return users;
     }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
